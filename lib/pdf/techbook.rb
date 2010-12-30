@@ -514,7 +514,7 @@ class PDF::TechBook < PDF::Writer
   end
   private :techbook_heading
 
-  def techbook_parse(document, progress = nil)
+  def techbook_parse(document, progress = nil, options={})
     @table_of_contents = []
 
     @toc_title          = "Table of Contents"
@@ -522,7 +522,7 @@ class PDF::TechBook < PDF::Writer
     @techbook_code      = ""
     @techbook_para      = ""
     @techbook_fontsize  = 12
-    @techbook_textopt   = { :justification => :full }
+    @techbook_textopt   = { :justification => :full }.update(options)
     @techbook_lastmode  = @techbook_mode = :normal
 
     @techbook_textfont  = "Times-Roman"
